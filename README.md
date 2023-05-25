@@ -12,3 +12,7 @@
 4.BEM (Nested)
 5.Webpack
 6.React
+
+### Посмотреть проект:
+
+- https://stanislav920.github.io/mesto-react/
