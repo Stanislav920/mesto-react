@@ -1,9 +1,9 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
+import React from "react";
+import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup(props) {
-  const [name, setName] = React.useState('');
-  const [link, setLink] = React.useState('');
+  const [name, setName] = React.useState("");
+  const [link, setLink] = React.useState("");
 
   function handleNameChange(evt) {
     setName(evt.target.value);
@@ -17,13 +17,13 @@ function AddPlacePopup(props) {
     evt.preventDefault();
     props.onAddPlace({
       name: name,
-      link: link
+      link: link,
     });
   }
 
   React.useEffect(() => {
-    setName('');
-    setLink('');
+    setName("");
+    setLink("");
   }, [props.isOpen]);
 
   return (
@@ -40,6 +40,7 @@ function AddPlacePopup(props) {
         type="text"
         className="popup__input"
         name="name"
+        value={name}
         placeholder="Название"
         autoComplete="off"
         minLength="2"
@@ -56,6 +57,7 @@ function AddPlacePopup(props) {
         placeholder="Ссылка на картинку"
         autoComplete="off"
         required
+        value={link}
         onChange={handleLinkChange}
       />
       <span className="link-picture-error popup__input-error"></span>
