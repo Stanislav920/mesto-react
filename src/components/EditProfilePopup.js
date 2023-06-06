@@ -11,7 +11,7 @@ function EditProfilePopup(props) {
     console.log(currentUser);
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, props.isOpen]);
 
   function handleNameChange(evt) {
     setName(evt.target.value);
@@ -39,36 +39,34 @@ function EditProfilePopup(props) {
       onClose={props.onClose}
       onSubmit={handleSubmit}
     >
-      <form>
-        <input
-          id="username-input"
-          type="text"
-          className="popup__input"
-          name="username"
-          placeholder="Ваше имя"
-          value={name}
-          required
-          minLength="2"
-          maxLength="40"
-          autoComplete="off"
-          onChange={handleNameChange}
-        />
-        <span className="username-input-error popup__input-error"> </span>
+      <input
+        id="username-input"
+        type="text"
+        className="popup__input"
+        name="username"
+        placeholder="Ваше имя"
+        value={name || ''}
+        required
+        minLength="2"
+        maxLength="40"
+        autoComplete="off"
+        onChange={handleNameChange}
+      />
+      <span className="username-input-error popup__input-error"> </span>
 
-        <input
-          id="subtitle-input"
-          type="text"
-          className="popup__input"
-          name="subtitle"
-          placeholder="О себе"
-          autoComplete="off"
-          required
-          value={description}
-          minLength="2"
-          maxLength="200"
-          onChange={handleDescriptionChange}
-        />
-      </form>
+      <input
+        id="subtitle-input"
+        type="text"
+        className="popup__input"
+        name="subtitle"
+        placeholder="О себе"
+        autoComplete="off"
+        required
+        value={description || ''}
+        minLength="2"
+        maxLength="200"
+        onChange={handleDescriptionChange}
+      />
 
       <span className="subtitle-input-error popup__input-error"></span>
     </PopupWithForm>
